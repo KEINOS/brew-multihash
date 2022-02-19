@@ -1,0 +1,18 @@
+# This workflow will run unit test, lint check and static analysis
+# over the Docker container.
+name: Tests
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  unit_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Run tests
+        run: docker-compose run test

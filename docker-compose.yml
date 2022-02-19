@@ -1,0 +1,52 @@
+# =============================================================================
+#   Docker Compose file for testing, updating mods and building the app.
+# =============================================================================
+# Usage:
+#   - Build container image before run (recommended):
+#     $ docker-compose build
+#
+#   - Run unit test/lint check /static analysis in container:
+#     $ docker-compose run test
+#
+#   - Test build via container (this will breate the release binaries under dist directory):
+#     $ docker-compose run build
+#
+#   - Updates to the latest mod versions. It will:
+#       1. Update "github.com/multiformats/go-multihash" module to the latest.
+#       2. Run `go mod tidy`.
+#       3. Downloads the latest "version.json" from the upstream.
+#       4. Run unit test.
+#     $ docker-compose run update
+version: "3.9"
+
+volumes:
+  cache-volume:
+
+services:
+  update:
+    build:
+      context: .
+      dockerfile: ./.github/Dockerfile
+    image: baseimage:latest
+    volumes:
+      - .:/workspaces
+      - cache-volume:/root/.cache/go-build
+    entrypoint: ./.github/update.sh
+  test:
+    build:
+      context: .
+      dockerfile: ./.github/Dockerfile
+    image: baseimage:latest
+    volumes:
+      - .:/workspaces
+      - cache-volume:/root/.cache/go-build
+    entrypoint: ./.github/test.sh
+  build:
+    build:
+      context: .
+      dockerfile: ./.github/Dockerfile
+    image: baseimage:latest
+    volumes:
+      - .:/workspaces
+      - cache-volume:/root/.cache/go-build
+    entrypoint: ./.github/build.sh
