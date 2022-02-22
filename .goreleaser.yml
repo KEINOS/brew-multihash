@@ -79,14 +79,14 @@ brews:
     # Target directory: KEINOS/homebrew-apps/Formula
     folder: Formula
     # URL of the archive in releases page
-    url_template: "https://github.com/KEINOS/go-multihash/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
+    url_template: "https://github.com/KEINOS/brew-multihash/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
     # Author info to commit to the tap repo
     commit_author:
       name: goreleaserbot
       email: goreleaser@carlosbecker.com
     # Message to display on `brew search` or `brew info`
     description: "Multihash is a command that returns a self-explanatory hash value."
-    homepage: "https://github.com/KEINOS/go-multihash/"
+    homepage: "https://github.com/KEINOS/brew-multihash"
     # Let brew command pull the archive via cURL
     download_strategy: CurlDownloadStrategy
     # Let brew command instll the binary as `go-pallet`
