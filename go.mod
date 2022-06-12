@@ -1,12 +1,12 @@
 module github.com/KEINOS/multihash
 
-go 1.17
+go 1.18
 
 require (
 	github.com/KEINOS/go-utiles v1.5.3
-	github.com/multiformats/go-multihash v0.1.1-0.20211210143450-760ee2c43a7c
+	github.com/multiformats/go-multihash v0.1.1-0.20220406133657-82656bcdba6e
 	github.com/pkg/errors v0.9.1
-	github.com/stretchr/testify v1.7.0
+	github.com/stretchr/testify v1.7.2
 	github.com/zenizh/go-capturer v0.0.0-20211219060012-52ea6c8fed04
 )
 
@@ -28,6 +28,6 @@ require (
 	golang.org/x/crypto v0.0.0-20210220033148-5ea612d1eb83 // indirect
 	golang.org/x/mod v0.5.1 // indirect
 	golang.org/x/sys v0.0.0-20210309074719-68d13333faf2 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/blake3 v1.1.7 // indirect
 )
